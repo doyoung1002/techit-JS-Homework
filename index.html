@@ -9,19 +9,18 @@
 </head>
 
 <body>
-  <h1 class="product-title"></h1>
-  <div class="product-list">
+  <form id="form">
+    <h1>참치회 특가 판매</h1>
+    <select id="product-list" size="4" multiple="multiple">
+    </select>
+    <ul id="product-select" class="hidden">선택한 상품</ul>
+    <p id="product-total">총액</p>
+    <button type="submit" id="product-btn">결제하기</button>
+
+  </form>
+  <div id="result">
   </div>
-
-  <h1></h1>
-
-  <h3></h3>
-
-  <button type="submit">결제하기</button>
-
-
-
-  <script src="main.js"></script>
+  <script defer src="main.js"></script>
 
 </body>
 
