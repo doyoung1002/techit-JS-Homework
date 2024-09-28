@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form id="payForm">
+    <h3>결제창</h3>
+    <p id="pay"></p>
+    <p>신용카드 번호를 입력하고 결제 버튼을 눌러 주세요.</p>
+    <input type="text" id="card" maxlength="16" placeholder="카드 번호를 입력하세요">
+    <button type="submit" id="payment">결제</button>
+  </form>
+
+  <div id="result"></div>
+  <script>
+
+    const totalPrice = localStorage.getItem('totalPrice');
+    const totalPay = document.querySelector('#pay');
+    const formContainer = document.querySelector('#payForm');
+    const resultElement = document.querySelector('#result');
+
+    totalPay.textContent = `${totalPrice}원을 결제 하셨습니다.`;
+
+    card.addEventListener('input', function () {
+      this.value = this.value.replace(/\D/g, '');
+    });
+
+    formContainer.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const card = document.querySelector('#card');
+      const cardNum = card.value.trim().replace(/\s+/g, '');
+
+      if (cardNum.length !== 16) {
+        alert('올바른 16자리 숫자의 카드 번호를 입력해주세요.')
+        card.value = '';
+        card.focus();
+      } else {
+        alert(`${cardNum}으로 ${totalPrice}원이 결제 되었습니다.`);
+        localStorage.removeItem('totalPrice');
+        formContainer.reset();
+        window.close();
+      }
+    })
+
+
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>
