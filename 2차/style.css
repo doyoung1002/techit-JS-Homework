@@ -1,0 +1,151 @@
+/* Reset */
+body,
+p {
+  margin: unset;
+  padding: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: unset;
+  font-size: unset;
+  font-family: unset;
+  font-weight: unset;
+}
+
+a {
+  color: unset;
+  text-decoration: unset;
+}
+
+button {
+  all: unset;
+  display: inline-block;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+/* Typography */
+:root {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 62.5%;
+}
+
+/* Component */
+.l_wrapper {
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.search-header {
+  text-align: center;
+}
+
+.search-title {
+  font-weight: 700;
+  font-size: 3.2rem;
+  margin: 20px 0;
+}
+
+.search-url {
+  font-size: 2.4rem;
+}
+
+.search-url:hover {
+  color: gray;
+}
+
+.search-Container {
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  text-align: center;
+}
+
+.search-input {
+  margin-top: 10px;
+  line-height: 1.8rem;
+  font-size: 1.8rem;
+  height: 30px;
+  vertical-align: top;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.search-button {
+  margin-top: 10px;
+  font-weight: 800;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 8px;
+  font-size: 1.4rem;
+  margin-left: 10px;
+  vertical-align: top;
+}
+
+.search-button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.article-container {
+  display: grid;
+  max-width: 1200px;
+  grid-template-columns: 1fr 300px;
+}
+
+.article-textBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-title {
+  font-weight: 700;
+  font-size: 2.4rem;
+  padding: 10px;
+}
+
+.article-author {
+  font-size: 1.4rem;
+  padding: 10px;
+}
+
+.article-time {
+  font-size: 1.4rem;
+  padding: 10px;
+}
+
+.article-contents {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  padding: 10px;
+}
+
+.article-img {
+  aspect-ratio: 16/9;
+  background-color: black;
+  margin-top: 10px;
+}
+
+.article-img img {
+  width: 100%;
+  object-fit: cover;
+}
