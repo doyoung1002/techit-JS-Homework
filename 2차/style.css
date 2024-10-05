@@ -41,6 +41,14 @@ img {
   vertical-align: top;
 }
 
+/* Common */
+.btn {
+  font-weight: 800;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 8px;
+}
+
 /* Typography */
 :root {
   font-family: 'Montserrat', sans-serif;
@@ -107,14 +115,18 @@ img {
 }
 
 .article-container {
-  display: grid;
+  display: flex;
   max-width: 1200px;
-  grid-template-columns: 1fr 300px;
+}
+
+.learn-more {
+  font-weight: 600;
 }
 
 .article-textBox {
   display: flex;
   flex-direction: column;
+  flex-basis: 900px;
 }
 
 .article-title {
@@ -123,7 +135,7 @@ img {
   padding: 10px;
 }
 
-.article-author {
+.article-authors {
   font-size: 1.4rem;
   padding: 10px;
 }
@@ -140,8 +152,8 @@ img {
 }
 
 .article-img {
+  flex-basis: 300px;
   aspect-ratio: 16/9;
-  background-color: black;
   margin-top: 10px;
 }
 
