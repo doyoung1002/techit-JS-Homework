@@ -18,23 +18,29 @@ searchBtn.addEventListener('click', () => {
       const articles = resultObj.articles;
       let resultTxt = '';
 
-      articles.forEach(article => {
+      articles.slice(0, 3).forEach(article => {
         resultTxt += `
+          <div class="l_wrapper">
         <article class="article-container" id="articleResult">
           <div class="article-textBox">
             <h2 class="article-title">${article.title}</h2>
-              <h3 class="article-authors">${article.author} - ${article.publishedAt} <a href=${article.url} target="_blank" rel="noopener noreferrer">Learn More</a></h3>
+              <h3 class="article-authors">${article.author} - ${article.publishedAt} <a class="learn-more" href=${article.url} target="_blank" rel="noopener noreferrer">Learn More</a></h3>
                 <p class="article-contents">${article.description}</p>
                   </div>
           <div class="article-img">
             <img src="${article.urlToImage}" alt="${article.title}" />
               </div>
                 </article>
+                  </div>
                   `;
       });
       document.querySelector('#result').innerHTML = resultTxt;
+    } else if (xhr.status === 400) {
+      alert('잘못된 요청입니다. 검색어를 다시 입력해주세요.');
+    } else if (xhr.status === 404) {
+      alert('검색 결과를 찾을 수 없습니다.');
     } else {
-      console.error('API 호출 실패:', xhr.statusText);
+      alert('서버 오류가 발생했습니다. 다시 시도해주세요.');
     }
   };
   xhr.onerror = function () {
@@ -43,62 +49,3 @@ searchBtn.addEventListener('click', () => {
 
   xhr.send();
 });
-
-
-
-
-
-
-
-// // 기사 영역의 요소들
-// const articleTitles = [
-//   document.querySelector('#articleTitle1'),
-//   document.querySelector('#articleTitle2'),
-//   document.querySelector('#articleTitle3')
-// ];
-// const articleAuthors = [
-//   document.querySelector('#articleAuthor1'),
-//   document.querySelector('#articleAuthor2'),
-//   document.querySelector('#articleAuthor3')
-// ];
-// const articleContents = [
-//   document.querySelector('#articleContent1'),
-//   document.querySelector('#articleContent2'),
-//   document.querySelector('#articleContent3')
-// ];
-// const articleImgs = [
-//   document.querySelector('#articleImg1'),
-//   document.querySelector('#articleImg2'),
-//   document.querySelector('#articleImg3')
-// ];
-
-// searchBtn.addEventListener('click', function () {
-//   const query = inputResult.value.toLowerCase();
-
-//   fetch('https://newsapi.org/v2/everything?q=tesla&from=2024-09-05&sortBy=publishedAt&apiKey=5af6b8bf3e49410aaa0c64fa3a614b59')
-//     .then(response => response.json())
-//     .then(data => {
-//       const articles = data.articles;
-//       const researchFields = ['title', 'content'];
-
-//       let foundItems = articles.filter(item =>
-//         researchFields.some(field => item[field] && item[field].toLowerCase().includes(query))
-//       );
-
-//       foundItems.slice(0, 3).forEach((article, index) => {
-//         if (articleTitles[index] && articleAuthors[index] && articleContents[index] && articleImgs[index]) {
-//           articleTitles[index].textContent = article.title;
-//           articleContents[index].textContent = article.content || 'No content available';
-
-//           const formattedTime = new Date(article.publishedAt).toLocaleString();
-//           articleAuthors[index].innerHTML = `${article.author || 'Unknown Author'} - ${formattedTime} 
-//             <a href="${article.url}" target="_blank" rel="noopener noreferrer">Learn More</a>`;
-
-//           articleImgs[index].src = article.urlToImage || 'default-image.jpg';
-//         } else {
-//           alert('검색 결과가 없습니다.');
-//         }
-//       });
-//     })
-//     .catch(error => console.error('Error:', error));
-// });
